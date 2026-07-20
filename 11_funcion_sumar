@@ -1,0 +1,5 @@
+def sumar (a, b):
+    resultado = a + b
+    return resultado
+resultado = sumar(3, 5)
+print(resultado)
