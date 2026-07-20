@@ -1,0 +1,6 @@
+numeros = [3, 8, 5, 12, 7, 4]
+par = 0
+for numero in numeros:
+    if numero % 2 == 0:
+        par = par + 1
+print("En la lista hay:", par, "números pares")
