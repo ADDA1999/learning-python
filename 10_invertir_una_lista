@@ -1,0 +1,5 @@
+numeros = [1, 2, 3, 4, 5]
+invertidos = []
+for numero in numeros:
+    invertidos.insert(0, numero)
+print("La lista invertida queda asi:", invertidos)
