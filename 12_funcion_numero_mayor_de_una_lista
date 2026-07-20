@@ -1,0 +1,11 @@
+def encontrar_numero_mayor(lista):
+    mayor = lista[0]
+    for numero in lista:
+        if numero > mayor:
+            mayor = numero
+    return mayor
+numeros = [5, 10, 15, 20, 25, 30]
+resultado = encontrar_numero_mayor(numeros)
+print(resultado)
+numeros2 = [3, 99, 1, 45]
+print(encontrar_numero_mayor(numeros2))
