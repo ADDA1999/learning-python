@@ -1,0 +1,15 @@
+def persona_mas_joven(personas):
+    joven = personas[0]
+    for persona in personas:
+        if persona["edad"] < joven["edad"]:
+            joven = persona
+    return joven["nombre"]
+
+personas = [
+    {"nombre": "Allan", "edad": 27},
+    {"nombre": "María", "edad": 30},
+    {"nombre": "Carlos", "edad": 22}
+]
+
+resultado = persona_mas_joven(personas)
+print(resultado)
