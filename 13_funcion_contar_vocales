@@ -1,0 +1,14 @@
+def contar_vocales(palabra): 
+    contador = 0
+    vocales = "aeiou"
+    for letra in palabra:
+        if letra in vocales:
+            contador = contador + 1
+    return contador
+
+palabra = input("Escribe una palabra para contar sus vocales: ")
+resultado = contar_vocales(palabra)
+print(resultado)
+
+print(contar_vocales("programacion"))
+print(contar_vocales("xyz"))
