@@ -1,0 +1,17 @@
+cantidad = int(input("¿Cuantas tareas quieres agregar?: "))
+tareas = []
+for i in range(cantidad):
+    tarea = input("Escribe una tarea: ")
+    tareas.append(tarea)
+
+archivo = open("tareas.txt", "w")
+for tarea in tareas:
+        
+        archivo.write(tarea+"\n")
+archivo.close()
+
+archivo = open("tareas.txt", "r")
+lineas = archivo.readlines()
+archivo.close()
+for linea in lineas:
+    print(linea)
