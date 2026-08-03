@@ -1,0 +1,14 @@
+def buscar_producto(inventario, nombre):
+    for producto in inventario:
+        if producto ["producto"] == nombre:
+            return producto ["precio"]
+    return None
+
+inventario = [
+    {"producto": "manzana", "precio": 500},
+    {"producto": "pan", "precio": 1200},
+    {"producto": "leche", "precio": 900}
+]
+
+print(buscar_producto(inventario, "pan"))
+print(buscar_producto(inventario, "queso"))
