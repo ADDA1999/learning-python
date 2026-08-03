@@ -1,0 +1,15 @@
+def contar_productos_caros(inventario, precio_limite):
+    contador = 0
+    for producto in inventario:
+        if producto ["precio"] > precio_limite:
+            contador = contador + 1
+    return contador
+
+inventario = [
+    {"producto": "Manzana", "precio": 500},
+    {"producto": "Pan", "precio": 1200},
+    {"producto": "Leche", "precio": 900},
+    {"producto": "Queso", "precio": 2500}
+]
+
+print(contar_productos_caros(inventario, 1000))
