@@ -1,0 +1,14 @@
+def precio_total(inventario):
+    precio_sumado = 0
+    for producto in inventario:
+        precio_sumado = precio_sumado + producto["precio"]
+    return precio_sumado
+
+inventario = [
+    {"producto": "Manzana", "precio": 500},
+    {"producto": "Pan", "precio": 1200},
+    {"producto": "Leche", "precio": 900},
+    {"producto": "Queso", "precio": 2500}
+]
+
+print(precio_total(inventario))
