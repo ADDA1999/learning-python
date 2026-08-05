@@ -1,0 +1,39 @@
+def agregar_contacto(contactos, nombre, numero, email):
+    nuevo_contacto = {"nombre": nombre, "numero":numero, "email": email}
+    contactos.append(nuevo_contacto)
+
+def buscar_contacto(contactos, nombre):
+    for contacto in contactos:
+        if contacto ["nombre"] == nombre:
+            return contacto
+    return None
+
+def cargar_contactos():
+    lista_vacia = []
+    archivo = open("contactos.txt", "r")
+    lineas = archivo.readlines()
+    archivo.close()
+    for linea in lineas:
+        partes = linea.strip().split(",")
+        contacto_reconstruido = {"nombre": partes[0], "numero": partes[1], "email": partes[2]}
+        lista_vacia.append(contacto_reconstruido)
+    return lista_vacia
+
+def guardar_contactos(contactos):
+    archivo = open("contactos.txt", "w")
+    for contacto in contactos:
+        archivo.write(contacto["nombre"] + "," + contacto["numero"] + "," + contacto["email"] + "\n")
+    archivo.close()
+
+#Uso del Programa
+
+contactos = cargar_contactos()
+print("Contactos cargados:", contactos)
+
+agregar_contacto(contactos, "Pedro", "8888-8888", "pedro@gmail.com")
+
+resultado = buscar_contacto(contactos, "Pedro")
+print("Encontrado:", resultado)
+
+guardar_contactos(contactos)
+print("Contactos guardados correctamente")
