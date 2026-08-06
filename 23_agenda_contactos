@@ -25,15 +25,29 @@ def guardar_contactos(contactos):
         archivo.write(contacto["nombre"] + "," + contacto["numero"] + "," + contacto["email"] + "\n")
     archivo.close()
 
-#Uso del Programa
-
 contactos = cargar_contactos()
 print("Contactos cargados:", contactos)
 
-agregar_contacto(contactos, "Pedro", "8888-8888", "pedro@gmail.com")
+while True:
+    print ("=== AGENDA DE CONTACTOS ===")
+    print ("1. Agregar contacto")
+    print ("2. Buscar contacto")
+    print ("3. Ver todos los contactos")
+    print ("4. Salir")
+    opcion = input("Elige una opción: ")
 
-resultado = buscar_contacto(contactos, "Pedro")
-print("Encontrado:", resultado)
-
+    if opcion == "1":
+        nombre = input("Por favor digita el nombre de tu contacto: ")
+        numero = input("Por favor digita el numero de tu contacto: ")
+        email = input("Por favor digita el email de tu contacto: ")
+        agregar_contacto(contactos, nombre, numero, email)
+    elif opcion == "2":
+        nombre_opcion_2 = input("Por favor digita el nombre del contacto que quieres buscar: ")
+        resultado = buscar_contacto(contactos, nombre_opcion_2)
+        print(resultado)
+    elif opcion == "3":
+        for contacto in contactos:
+            print(contacto)
+    elif opcion == "4":
+        break
 guardar_contactos(contactos)
-print("Contactos guardados correctamente")
