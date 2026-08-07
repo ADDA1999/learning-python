@@ -25,15 +25,23 @@ def guardar_contactos(contactos):
         archivo.write(contacto["nombre"] + "," + contacto["numero"] + "," + contacto["email"] + "\n")
     archivo.close()
 
+def eliminar_contacto(contactos, nombre):
+    for contacto in contactos:
+            if contacto ["nombre"] == nombre:
+                contactos.remove(contacto)
+                
+                return True
+    return False
+
 contactos = cargar_contactos()
-print("Contactos cargados:", contactos)
 
 while True:
     print ("=== AGENDA DE CONTACTOS ===")
     print ("1. Agregar contacto")
     print ("2. Buscar contacto")
     print ("3. Ver todos los contactos")
-    print ("4. Salir")
+    print ("4. Eliminar contacto")
+    print ("5. Salir")
     opcion = input("Elige una opción: ")
 
     if opcion == "1":
@@ -42,12 +50,20 @@ while True:
         email = input("Por favor digita el email de tu contacto: ")
         agregar_contacto(contactos, nombre, numero, email)
     elif opcion == "2":
-        nombre_opcion_2 = input("Por favor digita el nombre del contacto que quieres buscar: ")
-        resultado = buscar_contacto(contactos, nombre_opcion_2)
+        nombre = input("Por favor digita el nombre del contacto que quieres buscar: ")
+        resultado = buscar_contacto(contactos, nombre)
         print(resultado)
     elif opcion == "3":
         for contacto in contactos:
             print(contacto)
     elif opcion == "4":
+        nombre = input("Por favor digita el nombre de tu contacto: ")
+        resultado = eliminar_contacto(contactos, nombre)
+        if resultado:
+            print("El contacto se eliminó correctamente")
+        else:
+            print("Contacto no encontrado")
+    elif opcion == "5":
         break
 guardar_contactos(contactos)
+
