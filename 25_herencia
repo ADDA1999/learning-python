@@ -23,6 +23,22 @@ class ContactoFamilia(Contacto):
         super().mostrar_info()
         print("Parentesco:", self.parentesco)
 
+class Agenda:
+    def __init__(self):
+        self.contactos = []
+
+    def agregar_contacto(self, contacto):
+        self.contactos.append(contacto)
+
+    def mostrar_todos(self):
+        for contacto in self.contactos:
+            contacto.mostrar_info()
+            print("---")
+            
+trabajo1 = ContactoTrabajo("Pedro", "8888-8888", "pedro@empresa.com", "Empresa XYZ")
 familia1 = ContactoFamilia("María", "8444-6336", "maria@gmail.com", "Hermana")
-familia1.mostrar_info()
-print(familia1.parentesco)
+
+mi_agenda = Agenda()
+mi_agenda.agregar_contacto(trabajo1)
+mi_agenda.agregar_contacto(familia1)
+mi_agenda.mostrar_todos()
