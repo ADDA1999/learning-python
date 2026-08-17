@@ -52,14 +52,41 @@ class Agenda:
 
 
 mi_agenda = Agenda()
-c1 = Contacto("Allan", "8888-0000", "allan@gmail.com")
-c2 = Contacto("Maria", "8444-6336", "maria@gmail.com")
-mi_agenda.agregar_contacto(c1)
-mi_agenda.agregar_contacto(c2)
+try:
+    mi_agenda.contactos = mi_agenda.cargar_desde_archivo("contactos_clases.txt")
+except:
+    pass
 
+
+while True:
+    print ("=== AGENDA DE CONTACTOS ===")
+    print ("1. Agregar contacto")
+    print ("2. Buscar contacto")
+    print ("3. Ver todos los contactos")
+    print ("4. Eliminar contacto")
+    print ("5. Salir")
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        nombre = input("Por favor digita el nombre de tu contacto: ")
+        numero = input("Por favor digita el numero de tu contacto: ")
+        email = input("Por favor digita el email de tu contacto: ")
+        nuevo = Contacto(nombre, numero, email)
+        mi_agenda.agregar_contacto(nuevo)
+    elif opcion == "2":
+        nombre = input("Por favor digita el nombre del contacto que quieres buscar: ")
+        resultado = mi_agenda.buscar_contacto(nombre)
+        resultado.mostrar_info()
+    elif opcion == "3":
+        mi_agenda.mostrar_todos()
+    elif opcion == "4":
+        nombre = input("Por favor digita el nombre de tu contacto: ")
+        resultado = mi_agenda.eliminar_contacto(nombre)
+        if resultado:
+            print("El contacto se eliminó correctamente")
+        else:
+            print("Contacto no encontrado")
+    elif opcion == "5":
+        break
 mi_agenda.guardar_en_archivo("contactos_clases.txt")
-
-nueva_agenda = Agenda()
-nueva_agenda.contactos = nueva_agenda.cargar_desde_archivo("contactos_clases.txt")
-nueva_agenda.mostrar_todos()
         
