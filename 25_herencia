@@ -1,0 +1,28 @@
+class Contacto:
+    def __init__(self, nombre, numero, email):
+        self.nombre = nombre
+        self.numero = numero
+        self.email = email
+
+    def mostrar_info(self):
+        print("Nombre:", self.nombre)
+        print("Numero:", self.numero)
+        print("Email:", self.email)
+
+class ContactoTrabajo(Contacto):
+    def __init__(self, nombre, numero, email, empresa):
+        super().__init__(nombre, numero, email)
+        self.empresa = empresa
+
+class ContactoFamilia(Contacto):
+    def __init__(self, nombre, numero, email, parentesco):
+        super().__init__(nombre, numero, email)
+        self.parentesco = parentesco
+
+    def mostrar_info(self):
+        super().mostrar_info()
+        print("Parentesco:", self.parentesco)
+
+familia1 = ContactoFamilia("María", "8444-6336", "maria@gmail.com", "Hermana")
+familia1.mostrar_info()
+print(familia1.parentesco)
